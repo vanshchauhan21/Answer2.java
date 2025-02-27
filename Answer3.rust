@@ -1,0 +1,22 @@
+fn sum_sum(numbers: Option<Vec<i32>>) -> i32 {
+    match numbers {
+        Some(vec) => {
+            let mut sum = 0;
+            for num in vec {
+                if num % 2 == 0 {
+                    sum += num;
+                }
+            }
+            sum
+        }
+        None => 0,
+    }
+}
+
+fn main() {
+    let nums = Some(vec![1, 2, 3, 4, 6, 7, 8]);
+    println!("Sum of evens: {}", sum_sum(nums));
+
+    let empty: Option<Vec<i32>> = None;
+    println!("Sum of evens: {}", sum_sum(empty));
+}
