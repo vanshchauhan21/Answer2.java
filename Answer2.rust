@@ -1,0 +1,23 @@
+struct StringHolder<'a> {
+    first: &'a str,
+    second: &'a str,
+}
+
+fn longlongerlongest<'a>(s1: &'a str, s2: &'a str) -> &'a str {
+    let holder = StringHolder {
+        first: s1,
+        second: s2,
+    };
+    if holder.first.len() > holder.second.len() {
+        holder.first
+    } else {
+        holder.second
+    }
+}
+
+fn main() {
+    let s1 = String::from("short");
+    let s2 = String::from("longessstttttt string");
+    let longest = longlongerlongest(&s1, &s2);
+    println!("Longest: {}", longest);
+}
